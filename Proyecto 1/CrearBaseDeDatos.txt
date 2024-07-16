@@ -1,0 +1,15 @@
+docker-compose up -d
+docker exec -it proyecto1-db-1 mysql -u inventoryuser -p
+USE inventory;
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+DESCRIBE products;
+INSERT INTO products (name, quantity, price) VALUES 
+('Laptop', 10, 999.99),
+('Mouse', 50, 19.99),
+('Keyboard', 30, 49.99);
+SELECT * FROM products;
